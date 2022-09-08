@@ -1161,8 +1161,7 @@ int sniff(const char *input_file, const char *device, const char *output_file,
   }
 
   /* start capture loop */
-  /* if reading from an input file, continue until EOF */
-  pcap_loop(pcap, input_file ? 0 : 300, write_packet, (u_char *)params);
+  pcap_loop(pcap, 0, write_packet, (u_char *)params);
 
   /* write outstanding data */
   if (params->out) {
