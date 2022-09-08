@@ -985,12 +985,12 @@ void write_packet(u_char *args, const struct pcap_pkthdr *header,
     fprintf(stderr, "error parsing rtp header\n");
     return;
   }
-  fprintf(stderr, "  rtp 0x%08x %d %d %d",
+  fprintf(stdout, "  rtp 0x%08x %d %d %d",
           rtp.ssrc, rtp.type, rtp.seq, rtp.time);
-  fprintf(stderr, "  v%d %s%s%s CC %d", rtp.version,
+  fprintf(stdout, "  v%d %s%s%s CC %d", rtp.version,
           rtp.pad ? "P":".", rtp.ext ? "X":".",
           rtp.mark ? "M":".", rtp.cc);
-  fprintf(stderr, " %5d bytes\n", rtp.payload_size);
+  fprintf(stdout, " %5d bytes\n", rtp.payload_size);
 
   if (!params->out) {
     return;
